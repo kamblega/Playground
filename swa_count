@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class swa {
+	public static void main(String[] args) {
+		int divide, count1, count2, count3;
+		// Declare a Scanner object for user input
+		Scanner userInputScanner = new Scanner(System.in);
+
+		// Prompt the user to input an integer
+		System.out.print("Enter total number of txn: ");
+
+		// Read the integer input from the user
+		int userInput = userInputScanner.nextInt();
+
+		divide = (int) Math.ceil((double) userInput / 90); // Round up the division result
+
+		System.out.println("Number of Files : " + divide);
+
+		// Loop to print batch numbers
+		for (int i = 1; i <= divide; i++) {
+			// Calculate count1 for the current iteration
+			count1 = 1 + (i - 1) * 90;
+			// Calculate count2
+			count2 = (i == divide) ? userInput : count1 + 89; // Set count2 to userInput for the last iteration
+
+			System.out.printf("File " + i + " : %d-%d%n", count1, count2);
+		}
+
+	}
+}
